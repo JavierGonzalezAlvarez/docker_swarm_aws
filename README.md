@@ -36,6 +36,9 @@ $ sudo docker stack deploy -c docker-compose.yml drupal
 -service drupal-postgres
 
 
+
+
+
 eliminar contenedores
 -----------------------------------
 docker rm $(docker ps -a -q) -f
