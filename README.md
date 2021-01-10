@@ -40,6 +40,11 @@ $ docker node ls
 
 $ sudo docker stack deploy -c docker-compose.yml web
 
+comprobar conexion
+------------------------------
+$ curl http://localhost:80
+
+
 comprobar service
 $ docker service ls
 

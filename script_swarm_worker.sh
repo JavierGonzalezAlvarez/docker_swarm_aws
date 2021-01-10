@@ -9,7 +9,7 @@ sudo apt install curl
 sudo curl -sSL https://get.docker.com/ | sh
 
 sudo systemctl start docker.service
-usermod ubuntu -aG docker 
+sudo usermod ubuntu -aG docker 
 
 sudo docker swarm join --token SWMTKN-1-659kgz72ra3c2z76jz00n4t2h8rf8msdlvrzb3nc3g32zpryun-1jet8js3nxqybrmuafs5lor12 172.31.39.249:2377
 
