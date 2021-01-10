@@ -11,8 +11,7 @@ sudo curl -sSL https://get.docker.com/ | sh
 sudo systemctl start docker.service
 usermod ubuntu -aG docker 
 
-sudo docker swarm join --token SWMTKN-1-0ygu4w99ugr6zcu9koz2dk23pdc1gd595n6mjuvun2jfrwyror-6q5ul4h9rynqo5v1cq61o2sdr 172.31.11.71:2377
-
+sudo docker swarm join --token SWMTKN-1-659kgz72ra3c2z76jz00n4t2h8rf8msdlvrzb3nc3g32zpryun-1jet8js3nxqybrmuafs5lor12 172.31.39.249:2377
 
 #otro/s node/s. Instruccion tras ejecutar => "docker swarm init"
 # docker swarm join \    
