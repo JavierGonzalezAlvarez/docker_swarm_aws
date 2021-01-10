@@ -1,11 +1,15 @@
-creamos un ejemplo para que se pueda subir a un cluster de swarm
---------------------------------------------------------------------
-$ docker-compose up
-url local: localhost
-url web: 
+## Cluster de swarm
+------------------------
+
+# instalar docker-compose en leader
+sudo apt install docker-compose
+
+# comprobar el docker compose:
+$ sudo docker-compose up
 
 # ports in docker swarm
 
+# documentación
 https://docs.docker.com/engine/swarm/swarm-tutorial/
 
 activar estos puertos en secutiry groups
@@ -44,7 +48,6 @@ comprobar conexion
 ------------------------------
 $ curl http://localhost:80
 
-
 comprobar service
 $ docker service ls
 
@@ -57,19 +60,30 @@ $ sudo docker service create --name nginx_swarm --replicas=5 nginx
 ## opción 2.2. docker stack deploy a través de un docker-compose
 -------------------------------------------------------
 crear fichero docker-compose
-$ sudo docker stack deploy -c docker-compose.yml web_swarm
+$ sudo docker stack deploy -c docker-compose.yml web
 
--esto crea network (por defecto)
--service web_swarm_service_docker-compose
--service web_swarm-service_docker-compose
+-esto crea network web_default (por defecto)
+-service web_proxy
+-service web_web
 ...
 
+# escalar
+comprobar servicios (replicas)
+$ sudo docker service ls
+
+$ docker service scale web_proxy=2
+$ docker service scale web_web=2
+
+$ sudo docker service ls
 
 
+## otros comandos
 eliminar contenedores
 -----------------------------------
-docker rm $(docker ps -a -q) -f
+$ docker rm $(docker ps -a -q) -f
 
 eliminar imagenes
 -----------------------------------
-docker rmi $(docker images -q) 
+$ docker rmi $(docker images -q) 
+
+$ docker volume prune
