@@ -8,6 +8,8 @@ url web:
 
 https://docs.docker.com/engine/swarm/swarm-tutorial/
 
+activar estos puertos en secutiry groups
+---------------------------------------------
 TCP port 2377 for cluster management communications
 TCP and UDP port 7946 for communication among nodes
 UDP port 4789 for overlay network traffic
@@ -33,12 +35,15 @@ Advanced details: ingresamos el script SH enlazado con el TOKEN recibido en la p
     ($ sudo docker swarm join .....)
 
 ## comandos
-comprobar los nodos conectados tras añadir el token
+comprobar los nodos conectados tras añadir el token, desde leader
 $ docker node ls
+
+$ sudo docker stack deploy -c docker-compose.yml web
 
 comprobar service
 $ docker service ls
 
+url: 3.138.226.229
 
 ## opción 2.1. -service: posibilidad de crear un service
 ------------------------------------------------
@@ -47,13 +52,12 @@ $ sudo docker service create --name nginx_swarm --replicas=5 nginx
 ## opción 2.2. docker stack deploy a través de un docker-compose
 -------------------------------------------------------
 crear fichero docker-compose
-$ sudo docker stack deploy -c docker-compose.yml drupal
+$ sudo docker stack deploy -c docker-compose.yml web_swarm
 
 -esto crea network (por defecto)
--service drupal-drupal
--service drupal-postgres
-
-
+-service web_swarm_service_docker-compose
+-service web_swarm-service_docker-compose
+...
 
 
 
